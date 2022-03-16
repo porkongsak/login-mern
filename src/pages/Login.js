@@ -9,7 +9,7 @@ const Login = () =>{
 
   async function loginUser (event) {
     event.preventDefault()
-    const response = await fetch('http://localhost:1337/api/login', {
+    const response = await fetch('http://localhost:8000/api/login', {
       method: 'POST',
       headers:{
         'Content-Type':'application/json',
@@ -31,6 +31,8 @@ const Login = () =>{
         if (result.isConfirmed) {
           window.location.href='/dashboard'
         }
+      }).catch(error => {
+          console.log( error)
       })
       //.then(window.location.href='/quote') 
     } else {
